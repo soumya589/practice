@@ -8,4 +8,34 @@ let randomColor = function(){
     return color
 }
 
-console.log(randomColor());
+let interval;
+
+let changeCol = function(){
+    document.body.style.backgroundColor = randomColor()
+}
+
+let startChangeCol = function(){
+    if (!interval) {
+
+        interval = setInterval(changeCol, 1000)
+        
+    }
+}
+
+let stopChangeCol = function(){
+    clearInterval(interval)
+    interval = null
+}
+
+
+
+document.querySelector('.start').addEventListener('click', startChangeCol)
+
+
+document.querySelector('.stop').addEventListener('click', stopChangeCol)
+
+
+
+
+
+
